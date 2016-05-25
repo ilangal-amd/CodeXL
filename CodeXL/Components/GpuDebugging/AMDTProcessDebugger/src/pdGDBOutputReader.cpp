@@ -2970,6 +2970,16 @@ bool pdGDBOutputReader::handleAsynchronousOutput(const gtASCIIString& gdbOutputL
         bool rc1 = getStopReasonString(gdbOutputLine, stopReason);
         bool wasHostBreakPoint = false;
 
+        if (!rc1)
+        {
+            /// Gdb not always put stop reason of the "*stopped" message for steps
+            if (gdbOutputLine.find("frame=") != -1)
+            {
+                flushGDBPrompt();
+                rc1 = true;
+            }
+        }
+
         if (rc1)
         {
             // If a signal was received:
@@ -3591,8 +3601,6 @@ void pdGDBOutputReader::handleSignalOutput(const gtASCIIString& gdbOutputLine, b
 
     if (nullptr != _pGDBCommunicationPipe && nullptr != _pGDBDriver)
     {
-        gaLockDriverThreads();
-        
         std::string cmd = "-exec-interrupt --all\n";
         _wasGDBPrompt = false;
         _pGDBCommunicationPipe->write(cmd.c_str(), cmd.length());

@@ -254,6 +254,9 @@
 #define GPU_STR_TraceViewGPUEarlierFull "GPU PROCESSING EARLIER FRAME/S"
 #define GPU_STR_TraceViewGPUEarlierShort "EARLIER FRAME/S"
 
+// WholeCmdBuf
+#define GPU_STR_TraceViewWholeBufferTraceStr "Vulkan_WholeCmdBuf"
+
 // Trace table captions
 #define GP_STR_TraceTableColumnIndex "Index"
 #define GP_STR_TraceTableColumnInterface "Interface"
@@ -485,8 +488,10 @@
 #define GPU_STR_timeline_QueueBranchNameWithParam "Queue (%1) - %2"
 #define GPU_STR_timeline_ContextBranchName "Context %1 (%2)"
 #define GPU_STR_timeline_QueueBranchName "Queue %1"
-#define GPU_STR_timeline_CmdListBranchName "CmdList %1"
-#define GPU_STR_timeline_CmdBufferBranchName "CmdBuffer %1"
+#define GPU_STR_timeline_CmdListBranchName "CmdList%1"
+#define GPU_STR_timeline_CmdBufferBranchName "CmdBuffer%1"
+#define GPU_STR_timeline_CmdListIsntanceBranchName "CmdList%1_%2"
+#define GPU_STR_timeline_CmdBufferInstanceBranchName "CmdBuffer%1_%2"
 #define GPU_STR_timeline_QueueAPICallsBranchName "API Calls"
 #define GPU_STR_timeline_CmdListsBranchName "Command Lists"
 #define GPU_STR_timeline_CmdBuffersBranchName "Command Buffers"

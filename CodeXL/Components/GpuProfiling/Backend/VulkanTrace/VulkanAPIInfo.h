@@ -32,6 +32,9 @@ public:
     /// True for GPU items
     bool m_isGPU;
 
+    /// The GPU command sample ID
+    int m_sampleId;
+
 };
 
 
@@ -50,9 +53,6 @@ public:
 
     /// The command buffer handle as string
     std::string m_commandBufferHandleStr;
-
-    /// The GPU command sample ID
-    int m_sampleId;
 };
 
 
